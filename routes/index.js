@@ -1,6 +1,7 @@
 // Routes Quotes VideoUpload
 const express = require('express');
 const router = express.Router();
+const images = require('../helpers/images')
 
 const UserController = require('../controllers/userController')
 // const VideoController = require('../controllers/videoController');
@@ -16,6 +17,18 @@ router.get('/user', UserController.findAll)
 router.post('/register', UserController.register)
 router.post('/login', UserController.login)
 
+router.post('/upload',
+  images.multer.single('image'), 
+  images.sendUploadToGCS,
+  (req, res) => {
+    console.log("masuk sini upload post video", req.body)
+    res.send({
+      status: 200,
+      message: 'Your file is successfully uploaded',
+      link: req.file.cloudStoragePublicUrl
+    })
+    console.log("setelah res send upload")
+  })
 // router.get('/video', VideoController.findVideo)
 // router.use(Authentication)
 // router.get('/videos', VideoController.displayListVideoByUserId)
