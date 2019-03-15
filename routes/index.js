@@ -4,7 +4,7 @@ const router = express.Router();
 const images = require('../helpers/images')
 
 const UserController = require('../controllers/userController')
-// const VideoController = require('../controllers/videoController');
+const VideoController = require('../controllers/videoController');
 const Authentication = require('../middlewares/authentication.js')
 
 
@@ -29,11 +29,12 @@ router.post('/upload',
     })
     console.log("setelah res send upload")
   })
-// router.get('/video', VideoController.findVideo)
-// router.use(Authentication)
-// router.get('/videos', VideoController.displayListVideoByUserId)
-// router.post('/videos', VideoController.create);
-// router.delete('/videos/:id', VideoController.deleteIndividualVideo)
+
+router.get('/video', VideoController.findVideo)
+router.use(Authentication)
+router.get('/videos', VideoController.displayListVideoByUserId)
+router.post('/videos', VideoController.create);
+router.delete('/videos/:id', VideoController.deleteIndividualVideo)
 
 
 
