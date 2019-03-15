@@ -10,7 +10,7 @@ const port = process.env.port || 3000
 const app = express()
 
 mongoose.connect('mongodb+srv://admin:admin@share-vid-jcipx.mongodb.net/test', { urlNewUrlParser: true });
-// mongoose.connect('mongodb://localhost:27017/bold_fox_live_code_1', {useNewUrlParser: true})
+// mongoose.connect('mongodb://localhost:27017/bold_fox_live_code_1', {useNewUrlParser: true}
 
 //PublicFolder
 app.use(express.static('./public'))
