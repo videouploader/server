@@ -21,6 +21,7 @@ router.post('/upload',
   images.multer.single('image'), 
   images.sendUploadToGCS,
   (req, res) => {
+    console.log('ini req.filenya', req.file)
     console.log("masuk sini upload post video", req.body)
     res.send({
       status: 200,
