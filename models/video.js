@@ -2,9 +2,8 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const videoSchema = new Schema ({
-    id: {type: String},
-    content: {type: String},
-    path: {type: String},
+    link: {type: String},
+    name: {type: String},
     videouserid: {
         type: Schema.Types.ObjectId,
         ref: 'User'
